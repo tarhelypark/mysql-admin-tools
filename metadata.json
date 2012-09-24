@@ -1,0 +1,29 @@
+{
+  "name": "mysql-admin-tools",
+  "description": "Cookbook for useful MySql admin tools",
+  "long_description": "mysql-admin-tools\n=================\n\nCookbook for useful MySql admin tools\n\nWill install following tools:\n* MySql SLA - http://hackmysql.com/mysqlsla\n* MySqlTuner - http://mysqltuner.com/\n* mysql-tuning-primer - https://launchpad.net/mysql-tuning-primer\n\nTested on CentOs 6.2 only\n\nFeel free to send pull request!",
+  "maintainer": "CodePlay Solutions Ltd. - tarhelypark.hu",
+  "maintainer_email": "info@codeplay.hu",
+  "license": "All rights reserved",
+  "platforms": {
+  },
+  "dependencies": {
+  },
+  "recommendations": {
+  },
+  "suggestions": {
+  },
+  "conflicting": {
+  },
+  "providing": {
+  },
+  "replacing": {
+  },
+  "attributes": {
+  },
+  "groupings": {
+  },
+  "recipes": {
+  },
+  "version": "0.0.1"
+}
