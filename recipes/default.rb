@@ -42,3 +42,28 @@ remote_file "/usr/local/bin/tuning-primer.sh" do
   source mysqlprimer_link
   mode "0755"
 end
+
+cookbook_file "/etc/logrotate.d/mysql" do
+  source "mysql"
+  backup false
+  owner "root"
+  group "root"
+  mode "0644"
+end
+
+if node[:mysql_admin_tools][:mysqlsla_cron]
+  bash "Change logrotate extension config" do
+    code <<-EOH
+      sed -i'' -e's/dateext/#dateext/' /etc/logrotate.conf
+    EOH
+    not_if "grep '#dateext' /etc/logrotate.conf"
+  end
+  
+  cookbook_file "/etc/cron.d/mysqlsla" do
+    source "mysqlsla.cron"
+    backup false
+    owner "root"
+    group "root"
+    mode "0644"
+  end
+end

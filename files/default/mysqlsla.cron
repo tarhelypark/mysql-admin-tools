@@ -1,0 +1,3 @@
+SHELL=/bin/sh
+0 5 * * * root  /usr/local/bin/mysqlsla -lt general /var/lib/mysql/query.log.1 >> /var/log/mysqlsla-common.log
+0 6 * * * root  /usr/local/bin/mysqlsla -lt slow /var/lib/mysql/slow_queries.log.1 >> /var/log/mysqlsla-slow.log

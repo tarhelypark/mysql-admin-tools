@@ -1,6 +1,6 @@
 default[:mysql_admin_tools][:mysqlsla_version] = '2.03'
 default[:mysql_admin_tools][:mysqlsla_url] = 'http://hackmysql.com/scripts/'
-default[:mysql_admin_tools][:mysqltuner_url] = ''
+default[:mysql_admin_tools][:mysqlsla_cron] = true
 
 default[:mysql_admin_tools][:mysqltuner_url] = 'https://raw.github.com/rackerhacker/MySQLTuner-perl/master/mysqltuner.pl'
 
