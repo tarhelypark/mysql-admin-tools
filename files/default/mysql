@@ -18,9 +18,9 @@
 # ATTENTION: This /root/.my.cnf should be readable ONLY
 # for root !
 
-/var/lib/mysql/slow_queries.log /var/lib/mysql/query.log {
+/var/lib/mysql/slow_queries.log /var/lib/mysql/query.log /var/log/mysql/slow_queries.log /var/log/mysql/query.log {
         daily
-        rotate 10
+        rotate 3
         compress
         postrotate
         HOME="/root"
@@ -34,4 +34,5 @@
         sharedscripts
         delaycompress
         nocreate
+        missngok
 }
