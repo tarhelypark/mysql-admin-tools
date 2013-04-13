@@ -51,6 +51,14 @@ cookbook_file "/etc/logrotate.d/mysql" do
   mode "0644"
 end
 
+cookbook_file "/etc/logrotate.d/mysql-performance" do
+  source "mysql-performance"
+  backup false
+  owner "root"
+  group "root"
+  mode "0644"
+end
+
 if node[:mysql_admin_tools][:mysqlsla_cron]
   bash "Change logrotate extension config" do
     code <<-EOH

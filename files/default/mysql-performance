@@ -1,0 +1,9 @@
+/var/log/mysqlsla-common.log /var/log/mysqlsla-slow.log {
+        daily
+        rotate 10
+        compress
+        postrotate
+        HOME="/root"
+        delaycompress
+        nocreate
+}
