@@ -43,12 +43,12 @@ remote_file "/usr/local/bin/tuning-primer.sh" do
   mode "0755"
 end
 
-cookbook_file "/etc/logrotate.d/mysql" do
-  source "mysql"
-  backup false
+template "/etc/logrotate.d/mysql" do
+  source "mysql.erb"
+  mode 0644
   owner "root"
   group "root"
-  mode "0644"
+  variables(:mysql => node[:mysql])
 end
 
 cookbook_file "/etc/logrotate.d/mysql-performance" do
@@ -66,12 +66,13 @@ if node[:mysql_admin_tools][:mysqlsla_cron]
     EOH
     not_if "grep '#dateext' /etc/logrotate.conf"
   end
-  
-  cookbook_file "/etc/cron.d/mysqlsla" do
-    source "mysqlsla.cron"
-    backup false
+
+  template "/etc/cron.d/mysqlsla" do
+    source "mysqlsla.cron.erb"
+    mode 0644
     owner "root"
     group "root"
-    mode "0644"
+    variables(:mysql => node[:mysql])
   end
+  
 end
